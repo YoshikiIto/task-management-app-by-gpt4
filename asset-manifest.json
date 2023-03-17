@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/task-management-app-by-gpt4/static/css/main.e6c13ad2.css",
+    "main.js": "/task-management-app-by-gpt4/static/js/main.1d8e4a0a.js",
+    "index.html": "/task-management-app-by-gpt4/index.html",
+    "main.e6c13ad2.css.map": "/task-management-app-by-gpt4/static/css/main.e6c13ad2.css.map",
+    "main.1d8e4a0a.js.map": "/task-management-app-by-gpt4/static/js/main.1d8e4a0a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.1d8e4a0a.js"
+  ]
+}
