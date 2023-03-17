@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import AddTask from './components/AddTask';
+import TaskList from './components/TaskList';
+import { Task } from './Task';
 
-function App() {
+const App: React.FC = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const addTask = (task: Task) => {
+    setTasks((prevTasks) => [...prevTasks, task]);
+  };
+
+  const toggleTask = (taskToToggle: Task) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskToToggle.id
+          ? { ...task, completed: !task.completed }
+          : task
+      )
+    );
+  };
+
+  const deleteTask = (taskToDelete: Task) => {
+    setTasks((prevTasks) =>
+      prevTasks.filter((task) => task.id !== taskToDelete.id)
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Task Manager</h1>
+      <AddTask addTask={addTask} />
+      <TaskList
+        tasks={tasks}
+        toggleTask={toggleTask}
+        deleteTask={deleteTask}
+      />
     </div>
   );
-}
+};
 
 export default App;
